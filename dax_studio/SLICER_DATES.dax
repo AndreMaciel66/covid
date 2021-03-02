@@ -1,0 +1,23 @@
+﻿EVALUATE
+UNION (
+    SELECTCOLUMNS (
+        SUMMARIZECOLUMNS (
+            'date'[Week Year],
+            'date'[Week Year Order],
+            "Attribute", "Week"
+        ),
+        "Field", [Week Year],
+        "OrderBy", [Week Year Order],
+        "dateSlicer", [Attribute]
+    ),
+    SELECTCOLUMNS (
+        SUMMARIZECOLUMNS (
+            'date'[Month Name],
+            'date'[Month Name Number],
+            "Attribute", "Month Name"
+        ),
+        "Field", [Month Name],
+        "OrderBy", [Month Name Number],
+        "dateSlicer", [Attribute]
+    )
+)
